@@ -1,4 +1,4 @@
-![Logo](https://github.com/myvivarium/RPi-IoT/blob/main/images/IoT_graphical_abstract.webp)
+![Logo](https://github.com/myvivarium/RPi-IoT/blob/main/images/IoT_graphical_abstract-mod.webp)
 
 # RPi-IoT for MyVivarium
 
