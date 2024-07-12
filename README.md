@@ -9,4 +9,4 @@ A stand-alone Raspberry Pi-enabled IoT system to monitor near-realtime sensor da
 ![til](./images/IOTsensors2.gif)
 ![til](./images/IOTsensors3.gif)
 
-Demo interactive snapshot: https://snapshots.raintank.io/dashboard/snapshot/BS9oMWCz8rpT2H3xoGVoHyDHSobyJrrW
+Demo interactive snapshot: **[Link](https://snapshots.raintank.io/dashboard/snapshot/BS9oMWCz8rpT2H3xoGVoHyDHSobyJrrW)**
