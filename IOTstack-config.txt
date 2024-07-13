@@ -1,0 +1,93 @@
+version: '3.6'
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+  nextcloud:
+    driver: bridge
+    internal: true
+    ipam:
+      driver: default
+
+services:
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    restart: always
+    user: "0"
+    ports:
+    - "3000:3000"
+    environment:
+    - TZ=Etc/UTC
+    - GF_PATHS_DATA=/var/lib/grafana
+    - GF_PATHS_LOGS=/var/log/grafana
+    - GF_AUTH_ANONYMOUS_ENABLED=true
+    - GF_SECURITY_ALLOW_EMBEDDING=true
+    volumes:
+    - ./volumes/grafana/data:/var/lib/grafana
+    - ./volumes/grafana/log:/var/log/grafana
+    healthcheck:
+      test: ["CMD", "wget", "-O", "/dev/null", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  influxdb:
+    container_name: influxdb
+    image: "influxdb:1.8"
+    restart: always
+    ports:
+    - "8086:8086"
+    environment:
+    - TZ=Etc/UTC
+    - INFLUXDB_HTTP_FLUX_ENABLED=false
+    - INFLUXDB_REPORTING_DISABLED=false
+    - INFLUXDB_HTTP_AUTH_ENABLED=false
+    - INFLUXDB_MONITOR_STORE_ENABLED=FALSE
+  # - INFLUX_USERNAME=dba
+  # - INFLUX_PASSWORD=supremo
+  # - INFLUXDB_UDP_ENABLED=false
+  # - INFLUXDB_UDP_BIND_ADDRESS=0.0.0.0:8086
+  # - INFLUXDB_UDP_DATABASE=udp
+    volumes:
+    - ./volumes/influxdb/data:/var/lib/influxdb
+    - ./backups/influxdb/db:/var/lib/influxdb/backup
+    healthcheck:
+      test: ["CMD", "curl", "http://localhost:8086"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  portainer-ce:
+    container_name: portainer-ce
+    image: portainer/portainer-ce
+    restart: always
+    ports:
+    - "8000:8000"
+    - "9000:9000"
+    # HTTPS
+    - "9443:9443"
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./volumes/portainer-ce/data:/data
+
+  duckdns:
+    container_name: duckdns
+    build: https://github.com/ukkopahis/docker-duckdns.git
+    network_mode: host
+    restart: always
+    environment:
+      PUID: 1000
+      PGID: 1000
+    # Required variables, define here on in docker-compose.override.yml
+    #  TOKEN: token from duckdns.org
+    #  SUBDOMAINS: your domain added to duckdns.org (without .duckdns.org)
+    # Optional
+    #  PRIVATE_SUBDOMAINS: your domain added to duckdns.org (without .duckdns.org)
+
+
+
