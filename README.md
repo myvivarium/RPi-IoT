@@ -16,3 +16,5 @@ Demo interactive snapshot: **[Link](https://snapshots.raintank.io/dashboard/snap
 - Multiple I<sup>2</sup>C sensors
 - Data visualization using Grafana
 - Event alerts via Google chat webhook app
+
+Visit our **[wiki](https://github.com/myvivarium/RPi-IoT/wiki)** to get started!
