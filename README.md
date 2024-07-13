@@ -26,6 +26,10 @@ Demo interactive snapshot: **[Link](https://snapshots.raintank.io/dashboard/snap
 - Event alerts via Google chat webhook app
 
 ## Pre-requirements
+- Raspberry Pi Imager: **[Link](https://www.raspberrypi.com/software/)**
+- 
+
+## Materials
 - Raspberry Pi 4B
 - I2C sensors
 - Note: this setup utilizes three sensors with distinct I2C addresses. If >2 sensors with the same address are needed, a [multiplexer] can solve the issue.
