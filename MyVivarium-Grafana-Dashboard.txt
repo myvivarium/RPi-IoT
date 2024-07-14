@@ -333,7 +333,7 @@
                 "value": null
               },
               {
-                "color": "red",
+                "color": "blue",
                 "value": 0
               },
               {
@@ -341,7 +341,7 @@
                 "value": 17
               },
               {
-                "color": "blue",
+                "color": "red",
                 "value": 24
               }
             ]
@@ -566,6 +566,6 @@
   "timezone": "",
   "title": "MyVivarium Sensor Data",
   "uid": "e5cd9da9-01e9-4e72-b022-a8c39ba0a1e5",
-  "version": 26,
+  "version": 28,
   "weekStart": ""
 }
