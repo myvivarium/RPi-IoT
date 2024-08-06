@@ -6,8 +6,8 @@ After=network-online.target
 Type=simple
 Restart=always
 RestartSec=60
-WorkingDirectory=/home/pi/scripts/multisensors/
-ExecStart=/usr/bin/python3 /home/pi/scripts/multisensors/influxdb-multisensor.py
+WorkingDirectory=/home/pi/RPi-IoT/multisensors/
+ExecStart=/usr/bin/python3 /home/pi/RPi-IoT/multisensors/influxdb-multisensor.py
 
 [Install]
 WantedBy=multi-user.target
