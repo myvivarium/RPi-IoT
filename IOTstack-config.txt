@@ -25,6 +25,7 @@ services:
     - GF_PATHS_LOGS=/var/log/grafana
     - GF_AUTH_ANONYMOUS_ENABLED=true
     - GF_SECURITY_ALLOW_EMBEDDING=true
+  # - GF_SERVER_ROOT_URL= https://your-specific-domain/
     volumes:
     - ./volumes/grafana/data:/var/lib/grafana
     - ./volumes/grafana/log:/var/log/grafana
